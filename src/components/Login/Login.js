@@ -1,6 +1,7 @@
 import React from 'react';
 import './Login.css';
 import {Link} from 'react-router-dom';
+import { auth } from "../../firebase"
 //import { useState } from '';
 
 
@@ -15,7 +16,10 @@ function Login() {
 
     const register = (e) => {
         e.preventDefault();
+        //auth
+
     }
+
     return (
         <div className="login">
             <Link to="/">
@@ -38,7 +42,7 @@ function Login() {
                 <button type="submit" onClick={signIn} className="login__signinButton">Sign in</button>
                 <p>Amazon fake clone yore agree to sale ple see our privaicty Notica Cookies ans our interes Basen no add Notica</p>
 
-                <button className="login__registerButton">Create your amaozn account</button>
+                <button type="submit" onClick={register} className="login__registerButton">Create your amaozn account</button>
             </div>
         </div>
     )
