@@ -1,28 +1,25 @@
-import React from 'react';
-import './App.css';
-import Header from './Header';
-import Home from './Home';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Checkout from './components/Checkout'
+import React from "react";
+import "./App.css";
+import Header from "./Header";
+import Home from "./Home";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Checkout from "./components/Checkout/Checkout";
 
 function App() {
   return (
-    //BEM convection 
+    // BEM
     <Router>
       <div className="app">
-      <Header/>
+        <Header />
+
         <Switch>
-          <Route path="/home">
-            <Home/>
-          </Route>
-
           <Route path="/checkout">
-            <Checkout></Checkout>
+            <Checkout />
           </Route>
-          
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
-       
-
       </div>
     </Router>
   );
