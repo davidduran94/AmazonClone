@@ -1,20 +1,56 @@
 export const initialState = {
-    basket: [],
-};
-  
-const reducer = (state, action) => {
-console.log(action);
-switch (action.type) {
-    case "ADD_TO_BASKET":
-    return {
-        ...state,
-        basket: [...state.basket, action.item],
-    };
-
-    default:
-        return state;
+    cart: [],
+    user: null,
+    categories: ["Phones", "Laptops"]
 }
-};
 
-export default reducer;
-  
+export const getCartTotal = (cart) =>
+    cart?.reduce((amount, item) => item.price + amount, 0)
+
+const reducer = (state, action) => {
+
+    switch (action.type) {
+        case 'ADD_TO_CART':
+            // Logic for adding item to cart
+            console.log(state);
+            return {
+                ...state,
+                cart: [...state.cart, action.item]
+            }
+        case 'REMOVE_FROM_CART':
+            // Logic for removing item from cart
+
+            let newCart = [...state.cart]
+
+            const index = state.cart.findIndex(
+                item => item.id === action.item
+            )
+
+            if (index >= 0)
+                newCart.splice(index, 1)
+            else
+                console.warn(`can't remove product as ID ${action.item} is not available`)
+
+            return {
+                ...state,
+                cart: newCart
+            }
+
+        /*
+        return {
+            ...state,
+            cart: state.cart.filter(item => item.id !== action.payload)
+        }
+        */
+
+        case 'SET_USER':
+            return {
+                ...state,
+                user: action.user
+            }
+        default:
+            return state
+    }
+}
+
+export default reducer
