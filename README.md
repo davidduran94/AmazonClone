@@ -1,8 +1,9 @@
-# ReactJS Portfolio       
+# ReactJS Amazon clone
+## <a href="https://clone-f7ab7.web.app//">LIVE DEMO</a>
 
 ![ReactJS Resume Website Template](resume-screenshot.png?raw=true "ReactJS Resume Website Template")
 
-## <a href="https://clone-f7ab7.web.app//">LIVE DEMO</a>
+
 
 ## Description
 This is a ReactJS based Amazon Clone
